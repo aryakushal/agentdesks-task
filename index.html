@@ -1,0 +1,34 @@
+<html>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script>
+
+$.getJSON( "jsonData.json", function(response) {
+  $('#table-ad').DataTable({
+      "aaData": response,
+      "aoColumns": [
+        { "mDataProp": "firstname" },
+        { "mDataProp": "lastname" },
+        { "mDataProp": "email" },
+        { "mDataProp": "agency_name" }
+    ],
+     "order": [[ 3, "asc" ]],
+     "pageLength": 50
+  });
+});
+
+</script>
+<body>
+<table id="table-ad">
+   <thead>
+      <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Email</th>
+         <th>Agency Name</th>
+      </tr>
+   </thead>
+</table>
+</body>
+</html>
